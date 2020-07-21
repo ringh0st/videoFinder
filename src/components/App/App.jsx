@@ -2,8 +2,11 @@ import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 
 class App extends React.Component{
+    state={
+        term:'',
+    }
     render(){
-        return <div><SearchBar/></div>
+        return <div className="ui container"><SearchBar/></div>
     }
 }
 export default App;
