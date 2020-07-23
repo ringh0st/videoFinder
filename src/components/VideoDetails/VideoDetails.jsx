@@ -1,4 +1,5 @@
 import React from 'react';
+import {VideoDetailContainer} from './VideoDetails.styles';
 
 const VideoDetails =({selectedVideo})=>{
     if(!selectedVideo){
@@ -6,7 +7,7 @@ const VideoDetails =({selectedVideo})=>{
     }
     const videoSrc = `https://www.youtube.com/embed/${selectedVideo.id.videoId}`
     return (
-    <div>
+    <VideoDetailContainer>
         <div className="ui embed">
             <iframe src={videoSrc}/>
         </div>
@@ -14,7 +15,7 @@ const VideoDetails =({selectedVideo})=>{
             <h4 className="ui header">{selectedVideo.snippet.title}</h4>
             <p>{selectedVideo.snippet.description}</p>
         </div>
-    </div>
+    </VideoDetailContainer>
     )
 }
 export default VideoDetails
