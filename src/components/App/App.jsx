@@ -4,31 +4,42 @@ import youtube from '../../apis/youtube';
 import VideoList from '../VideoList/VideoList';
 import VideoDetails from '../VideoDetails/VideoDetails';
 
-class App extends React.Component{
-    state={
-        videos:[],
-        selectedVideo:null
+class App extends React.Component {
+    state = {
+        videos: [],
+        selectedVideo: null
     }
     onTermSubmit = async term => {
         const response = await youtube.get('/search', {
-            params:{
+            params: {
                 q: term,
             }
         })
-        this.setState({videos:response.data.items})
-    }; 
-    
-    onVideoSelect =(video)=>{
-        console.log('ffrom the app',video);
-        this.setState({selectedVideo:video})
+        this.setState({ videos: response.data.items })
+    };
+
+    onVideoSelect = (video) => {
+        console.log('ffrom the app', video);
+        this.setState({ selectedVideo: video })
     }
-    render(){
+    render() {
         return <div className="ui container">
-            <SearchBar onTermSubmit={this.onTermSubmit}/>
-            <VideoDetails selectedVideo={this.state.selectedVideo}/>
-            <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos}/>
+            <SearchBar onTermSubmit={this.onTermSubmit} />
+            <div className="ui grid">
+                <div className="ui row">
+                    <div className="eleven wide column">
+                        <VideoDetails selectedVideo={this.state.selectedVideo} />
+                    </div>
+                    <div className="five wide column">
+                        <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos} />
+
+                    </div>
+                </div>
+
             </div>
-        
+
+        </div>
+
     }
 }
 export default App;
