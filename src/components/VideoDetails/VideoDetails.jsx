@@ -14,7 +14,6 @@ const VideoDetails =({selectedVideo})=>{
             <h4 className="ui header">{selectedVideo.snippet.title}</h4>
             <p>{selectedVideo.snippet.description}</p>
         </div>
-        
     </div>
     )
 }
