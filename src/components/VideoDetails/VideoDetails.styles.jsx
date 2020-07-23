@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-const VideoDetailContainer = styled.div`
+export const VideoDetailContainer = styled.div`
 
 `
