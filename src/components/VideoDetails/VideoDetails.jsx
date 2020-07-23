@@ -7,7 +7,7 @@ const VideoDetails =({selectedVideo})=>{
     }
     const videoSrc = `https://www.youtube.com/embed/${selectedVideo.id.videoId}`
     return (
-    <VideoDetailContainer>
+    <VideoDetailContainer className="ui image">
         <div className="ui embed">
             <iframe title="video player" src={videoSrc}/>
         </div>
